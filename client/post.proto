@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package main;
+
+message Post {
+    int32 id = 1;
+    string title = 2;
+    string author = 3;
+}
+
+service PostService {
+    rpc ListPosts(google.protobuf.Empty) returns (stream Post) {}
+}
